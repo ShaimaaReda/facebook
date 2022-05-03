@@ -1,2 +1,4 @@
-.vs
-packages
+.vs/
+packages/
+face/bin/
+face/obj/
