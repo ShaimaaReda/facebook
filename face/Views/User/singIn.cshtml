@@ -1,0 +1,72 @@
+﻿@model face.Models.Users
+@{
+    ViewBag.Title = "singup";
+}
+
+
+
+@*<form id="New">*@
+@using (Html.BeginForm())
+{
+    <div class="left">
+        <h1>Sing Up</h1>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(z => z.Email)
+        </div>
+        <br />
+        <div class="form-group">
+
+            @Html.LabelFor(x => x.password)
+            @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.password)
+        </div>
+        @if (@ViewBag.loginErrormassage != null)
+        {
+            <div>
+                <label class="text-danger">@ViewBag.loginErrormassage</label>
+            </div>
+        }
+
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="right">
+        <br />
+        <span class="loginwith">Sign in with<br />social network</span>
+
+        <button type="button" class="bottom12">
+            @Html.ActionLink("Don't have account? Sing UP", "NewUser")
+        </button>
+    </div>
+
+    @*</form>*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+}
+
+@*<script>
+        $(document).ready(function () {
+            $(".bottom12").click(function () {
+                mydata = $("#New").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/User/singIn",
+                    data: mydata,
+                    success: function (response) {
+                        alert("Inserstion successfully");
+
+                    }
+
+                })
+            })
+        })
+
+    </script>*@
+
+
+
+

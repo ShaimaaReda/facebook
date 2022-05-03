@@ -1,0 +1,74 @@
+﻿@model face.Models.Users
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
+
+@{
+    ViewBag.Title = "NewUser";
+}
+
+
+
+@using (Html.BeginForm("NewUser", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="login-box">
+        <div class="left">
+            <h2>Sign Up</h2>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.FirstName)
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Enter First Name" })
+                @Html.ValidationMessageFor(z => z.FirstName)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.LastName)
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Enter Last Name" })
+                @Html.ValidationMessageFor(z => z.LastName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter email" })
+                @Html.ValidationMessageFor(z => z.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.City)
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = "Enter City" })
+                @Html.ValidationMessageFor(z => z.City)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Country)
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control", placeholder = "Enter Country" })
+                @Html.ValidationMessageFor(z => z.Country)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.password)
+                @Html.PasswordFor(m => m.password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(x => x.password)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Enter Confirm Password" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassword)
+            </div><br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImagePath, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    <input type="file" name="ImageFile" required >
+                </div>
+            </div>
+            <br /><br><br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br /><br />
+
+        </div>
+        <div class="right">
+            <br />
+            <span class="loginwith">Sign in with<br />Facebook</span>
+
+            <button type="button" class="bottom12">
+                @Html.ActionLink("already have account?sign in", "singup")
+            </button>
+        </div>
+    </div>
+}
+
